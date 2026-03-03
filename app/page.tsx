@@ -14,24 +14,22 @@ import UserNav from "@/src/components/UserNav"
 // Este componente isola a visualização e serve como a moldura do teste.
 function PlaygroundView({ children, onExit }: { children: React.ReactNode, onExit: () => void }) {
   return (
-    <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center p-8">
-      <div className="w-full max-w-4xl space-y-4">
-        <div className="flex justify-between items-center px-2">
-          <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-[0.2em]">
-            AI Debug Mode
-          </span>
-          <button 
-            onClick={onExit}
-            className="px-4 py-1.5 bg-zinc-800 text-zinc-300 rounded-full text-xs hover:bg-zinc-700 transition-all border border-zinc-700 shadow-lg"
-          >
-            Voltar para o Protótipo
-          </button>
-        </div>
-        
-        {/* Área onde o componente "parâmetro" é renderizado */}
-        <div className="p-12 border border-zinc-800 rounded-2xl bg-zinc-900/40 backdrop-blur-md shadow-2xl flex items-center justify-center">
-          {children}
-        </div>
+    <div className="fixed inset-0 z-[9999] bg-background"> {/* "fixed inset-0" faz ocupar a tela toda */}
+      <div className="absolute top-4 right-4 z-[10000] flex gap-2">
+        <span className="bg-zinc-800 text-zinc-400 text-[10px] px-2 py-1 rounded-md font-mono flex items-center">
+          PREVIEW MODE
+        </span>
+        <button 
+          onClick={onExit}
+          className="px-4 py-1 bg-red-600 text-white rounded-md text-xs font-bold hover:bg-red-700 shadow-lg"
+        >
+          Sair do Teste
+        </button>
+      </div>
+      
+      {/* O componente agora ocupa 100% do espaço disponível */}
+      <div className="w-full h-full overflow-auto">
+        {children}
       </div>
     </div>
   )
