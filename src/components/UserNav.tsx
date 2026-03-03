@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { User, Settings, LogOut, ChevronDown } from 'lucide-react';
-import { Button } from 'shadcn/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from 'shadcn/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const UserNav = () => {
   const initials = "JD"; // Example initials
